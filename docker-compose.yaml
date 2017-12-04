@@ -1,0 +1,59 @@
+version: '2.1'
+networks:
+  ethereumnet:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 172.16.123.0/24
+services:
+  ipk-neo-example0:
+    
+    container_name: ipk-neo-example0
+    image: ipk/neo-private-block
+    networks:
+      ethereumnet:
+        ipv4_address: 172.16.123.10    
+        aliases:
+          - ipk-neo-example0.bctrustmachine.cn
+    ports:
+      - 30331-30334:10331-10334
+        
+  ipk-neo-example1:
+    
+    container_name: ipk-neo-example1
+    image: ipk/neo-private-block
+    networks:
+      ethereumnet:
+        ipv4_address: 172.16.123.11
+        aliases:
+          - ipk-neo-example1.bctrustmachine.cn
+    ports:
+      - 31331-31334:10331-10334
+
+  ipk-neo-example2:
+    
+    container_name: ipk-neo-example2
+    image: ipk/neo-private-block
+    networks:
+      ethereumnet:
+        ipv4_address: 172.16.123.12
+        aliases:
+          - ipk-neo-example2.bctrustmachine.cn
+    ports:
+      - 32331-32334:10331-10334
+
+
+  ipk-neo-example3:
+    
+    container_name: ipk-neo-example3
+    image: ipk/neo-private-block
+    networks:
+      ethereumnet:
+        ipv4_address: 172.16.123.13
+        aliases:
+          - ipk-neo-example3.bctrustmachine.cn
+    ports:
+      - 33331-33334:10331-10334
